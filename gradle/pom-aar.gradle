@@ -1,0 +1,14 @@
+apply from: "$rootDir/gradle/pom.gradle"
+
+publishing.publications.all {
+    pom.withXml {
+        def dependenciesNode = asNode().appendNode('dependencies')
+        configurations.compile.allDependencies.each {
+            def d = dependenciesNode.appendNode('dependency')
+            d.appendNode('groupId', it.group)
+            d.appendNode('artifactId', it.name.replaceFirst(/^mockito$/, 'mockito-core'))
+            d.appendNode('version', it.version)
+            d.appendNode('scope', 'runtime')
+        }
+    }
+}
