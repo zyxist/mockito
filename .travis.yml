@@ -13,7 +13,13 @@ cache:
 # see https://docs.travis-ci.com/user/migrating-from-legacy/ and https://docs.travis-ci.com/user/ci-environment
 sudo: true
 
-language: java
+# Allows building Java and Android
+language: android
+
+android:
+  components:
+    - build-tools-24.0.0
+    - android-22
 
 # new workaround for https://github.com/travis-ci/travis-ci/issues/5227#issuecomment-165131913
 addons:

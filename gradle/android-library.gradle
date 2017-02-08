@@ -4,8 +4,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.2'
+    compileSdkVersion 22
+    buildToolsVersion '24.0.0'
     compileOptions {
         sourceCompatibility 1.6
         targetCompatibility 1.6
