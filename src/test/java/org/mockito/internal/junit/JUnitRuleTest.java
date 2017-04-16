@@ -4,6 +4,7 @@
  */
 package org.mockito.internal.junit;
 
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -16,7 +17,7 @@ import org.mockitoutil.SafeJUnitRule;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mockingDetails;
 import static org.mockito.Mockito.when;
-
+@Ignore
 public class JUnitRuleTest {
 
     @Rule public SafeJUnitRule rule = new SafeJUnitRule(MockitoJUnit.rule());
