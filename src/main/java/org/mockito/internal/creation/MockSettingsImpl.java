@@ -13,6 +13,7 @@ import org.mockito.internal.util.Checks;
 import org.mockito.internal.util.MockCreationValidator;
 import org.mockito.internal.util.MockNameImpl;
 import org.mockito.listeners.InvocationListener;
+import org.mockito.listeners.VerificationStartedListener;
 import org.mockito.mock.MockCreationSettings;
 import org.mockito.mock.MockName;
 import org.mockito.mock.SerializableMode;
@@ -155,6 +156,12 @@ public class MockSettingsImpl<T> extends CreationSettings<T> implements MockSett
         return this;
     }
 
+    public MockSettings verificationStartedListeners(VerificationStartedListener... listeners) {
+        //TODO SF null check
+        this.verificationStartedListeners.addAll(Arrays.asList(listeners));
+        return this;
+    }
+
     private boolean invocationListenersContainsType(Class<?> clazz) {
         for (InvocationListener listener : invocationListeners) {
             if (listener.getClass().equals(clazz)) {
@@ -194,6 +201,7 @@ public class MockSettingsImpl<T> extends CreationSettings<T> implements MockSett
         validator.validateConstructorUse(source.isUsingConstructor(), source.getSerializableMode());
 
         //TODO SF - I don't think we really need CreationSettings type
+        //TODO do we really need to copy the entire settings every time we create mock object? it does not seem necessary.
         CreationSettings<T> settings = new CreationSettings<T>(source);
         settings.setMockName(new MockNameImpl(source.getName(), typeToMock));
         settings.setTypeToMock(typeToMock);

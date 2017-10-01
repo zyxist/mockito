@@ -7,6 +7,7 @@ package org.mockito;
 import org.mockito.invocation.InvocationFactory;
 import org.mockito.invocation.MockHandler;
 import org.mockito.listeners.InvocationListener;
+import org.mockito.listeners.VerificationStartedListener;
 import org.mockito.mock.MockCreationSettings;
 import org.mockito.mock.SerializableMode;
 import org.mockito.stubbing.Answer;
@@ -218,6 +219,12 @@ public interface MockSettings extends Serializable {
      * @return settings instance so that you can fluently specify other settings
      */
     MockSettings invocationListeners(InvocationListener... listeners);
+
+    /**
+     * @param listeners
+     * @return
+     */
+    MockSettings verificationStartedListeners(VerificationStartedListener... listeners);
 
     /**
      * A stub-only mock does not record method
