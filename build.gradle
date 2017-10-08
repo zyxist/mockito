@@ -39,6 +39,7 @@ apply from: 'gradle/mockito-core/osgi.gradle'
 apply from: 'gradle/mockito-core/javadoc.gradle'
 apply from: 'gradle/mockito-core/license.gradle'
 apply from: 'gradle/mockito-core/testing.gradle'
+apply from: 'gradle/mockito-core/jdk9-auto-modules.gradle'
 
 apply from: 'gradle/dependencies.gradle'
 

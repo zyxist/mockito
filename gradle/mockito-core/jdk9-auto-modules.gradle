@@ -1,0 +1,3 @@
+jar.manifest {
+    attributes 'Automatic-Module-Name': 'org.mockito'
+}
